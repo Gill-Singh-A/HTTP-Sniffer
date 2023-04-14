@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 from os import geteuid
-from sys import argv
 from pickle import load, dump
 from scapy.all import sniff, IP, Raw
 from scapy.layers.http import HTTPRequest
