@@ -35,7 +35,7 @@ def check_root():
 
 def sniff_packets(iface=None):
 	if iface:
-		sniff(rn=process_packet, iface=iface, store=False)
+		sniff(prn=process_packet, iface=iface, store=False)
 	else:
 		sniff(prn=process_packet, store=False)
 def process_packet(packet):
@@ -50,7 +50,7 @@ def process_packet(packet):
 			display('+', f"{ip} : {Back.MAGENTA}{method}{Back.RESET} => {url}")
 		if packet.haslayer(Raw):
 			if verbose:
-				display('*', f"RAW Data : {packet.Raw.load}")
+				display('*', f"RAW Data : {packet[Raw].load}")
 
 if __name__ == "__main__":
 	data = get_arguments(('-i', "--iface", "iface", "Interface on which sniffing has to be done"),
